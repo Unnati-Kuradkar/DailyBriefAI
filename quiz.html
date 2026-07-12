@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Daily Quiz</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🎯 Daily Quiz</h1>
+    {% if score is not none %}
+
+    <div class="card">
+
+        <h2>
+            🎉 Your Score: {{ score }}/{{ news|length }}
+        </h2>
+
+    </div>
+
+    {% endif %}
+    <a href="/" class="btn">
+        ← Back Home
+    </a>
+
+    <br><br>
+
+    <form method="POST">
+
+        {% for article in news %}
+
+        <div class="card">
+
+            <h3>
+                Q{{ loop.index }}.
+                This news belongs to which category?
+            </h3>
+
+            <p>{{ article[1] }}</p>
+
+            <label>
+                <input type="radio"
+                       name="q{{ loop.index }}"
+                       value="Technology">
+                Technology
+            </label>
+
+            <br>
+
+            <label>
+                <input type="radio"
+                       name="q{{ loop.index }}"
+                       value="Business">
+                Business
+            </label>
+
+            <br>
+
+            <label>
+                <input type="radio"
+                       name="q{{ loop.index }}"
+                       value="Politics">
+                Politics
+            </label>
+
+            <br>
+
+            <label>
+                <input type="radio"
+                       name="q{{ loop.index }}"
+                       value="Sports">
+                Sports
+            </label>
+
+            <br>
+
+            <label>
+                <input type="radio"
+                       name="q{{ loop.index }}"
+                       value="General">
+                General
+            </label>
+
+        </div>
+
+        {% endfor %}
+
+        <button type="submit" class="btn">
+            Submit Quiz
+        </button>
+
+    </form>
+
+    <br>
+
+    {% if score is not none %}
+
+    <div class="card">
+
+        <h2>
+            🎉 Your Score: {{ score }}/5
+        </h2>
+
+    </div>
+
+    {% endif %}
+
+</div>
+
+</body>
+</html>
