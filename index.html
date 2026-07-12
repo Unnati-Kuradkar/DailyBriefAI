@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>DailyBriefAI</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="hero-section">
+
+    <div class="hero">
+    <h1>📰 DailyBriefAI</h1>
+
+    <p>
+        AI-Powered Current Affairs &
+        Exam Preparation Platform
+    </p>
+
+    <div class="hero-tags">
+        <span>UPSC</span>
+        <span>SSC</span>
+        <span>Banking</span>
+        <span>Railway</span>
+        <span>Defence</span>
+    </div>
+</div>
+
+</div>
+
+    <div class="stats-bar">
+        <p>
+            <strong>Last Updated:</strong>
+            {{ last_updated }}
+        </p>
+    </div>
+
+    <!-- Statistics -->
+
+    <div class="stats-container">
+
+        <div class="stat-card">
+            <h3>Total Articles</h3>
+            <p>{{ stats.total }}</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>Technology</h3>
+            <p>{{ stats.technology }}</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>Business</h3>
+            <p>{{ stats.business }}</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>Politics</h3>
+            <p>{{ stats.politics }}</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>Sports</h3>
+            <p>{{ stats.sports }}</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>General</h3>
+            <p>{{ stats.general }}</p>
+        </div>
+
+    </div>
+
+
+
+    <!-- Top Buttons -->
+
+    <div class="top-bar">
+
+        <a href="/refresh" class="refresh-btn">
+            🔄 Refresh News
+        </a>
+
+        <a href="/download_pdf" class="btn pdf-btn">
+            📄 Download PDF
+        </a>
+
+        <a href="/chatbot" class="btn">
+            🤖 AI Chatbot
+        </a>
+
+        <a href="/monthly_magazine"
+            class="btn magazine-btn">
+   📖       Monthly Magazine
+        </a>
+
+        <a href="/bookmarks" class="btn">
+            📚 My Bookmarks
+        </a>
+
+        <a href="/weekly_revision" class="btn revision-btn">
+            📚 Weekly Revision
+        </a>
+
+        <a href="/upsc_notes" class="btn">
+            📚 UPSC Notes
+        </a>
+
+        <a href="/mcqs"
+            style="background:rgb(255, 0, 132);color:white;padding:15px;display:block;margin:10px;border-radius:8px;text-align:center;">
+            📝 GENERATE MCQS TEST
+        </a>
+
+        <a href="/quiz" class="btn quiz-btn">
+            🎯 Daily Quiz
+        </a>
+
+        <a href="/catchup" class="btn">
+            ⚡ Catch Up
+        </a>
+
+        <button class="theme-btn" onclick="toggleTheme()">
+            🌙 Dark Mode
+        </button>
+
+    </div>
+
+    <!-- Search -->
+
+    <form method="GET" action="/" class="search-form">
+
+        <input
+            type="text"
+            name="search"
+            placeholder="Search news..."
+            value="{{ query if query else '' }}"
+        >
+
+        <button type="submit">
+            Search
+        </button>
+
+    </form>
+
+    <!-- Categories -->
+
+    <div class="category-filters">
+
+        <a href="/" class="filter-btn">
+            All
+        </a>
+
+        {% for category in categories %}
+
+        <a href="/?category={{ category }}"
+           class="filter-btn">
+
+            {{ category }}
+
+        </a>
+
+        {% endfor %}
+
+    </div>
+
+    <!-- News Articles -->
+
+    {% if news %}
+
+        {% for article in news %}
+
+        <div class="card">
+
+            {% if article[6] %}
+
+            <img
+                src="{{ article[6] }}"
+                alt="News Image"
+                class="news-image"
+            >
+
+            {% endif %}
+
+            <span class="category-badge">
+                {{ article[5] }}
+            </span>
+
+            <h2>{{ article[1] }}</h2>
+
+            <p class="summary">
+                {{ article[2] }}
+            </p>
+
+            <small>
+                Published:
+                {{ article[4] }}
+            </small>
+
+            <br><br>
+
+            <a href="{{ article[3] }}"
+                target="_blank"
+                class="btn">
+
+                Read Full Article
+
+            </a>
+
+            <a href="/bookmark/{{ article[0] }}"
+                class="btn">
+
+                ⭐ Save
+
+             </a>
+
+            <button class="btn voice-btn"
+                onclick="speakSummary(this)">
+                🔊 Listen Summary
+            </button>
+
+           
+        </div>
+
+        {% endfor %}
+
+    {% else %}
+
+        <div class="card">
+
+            <h2>No Results Found</h2>
+
+            <p>
+                No news articles matched your search.
+            </p>
+
+        </div>
+
+    {% endif %}
+
+    <!-- Analytics Chart -->
+
+    <div class="chart-card">
+    <h2>📊 News Analytics</h2>
+    <canvas id="newsChart"></canvas>
+    </div>
+
+    <!-- Pagination -->
+
+    <div class="pagination">
+        {% if page > 1 %}
+
+            <a href="/?page={{ page - 1 }}"
+               class="page-btn">
+
+                ← Previous
+
+            </a>
+
+        {% endif %}
+
+        <span class="page-info">
+            Page {{ page }} of {{ total_pages }}
+        </span>
+
+        {% if page < total_pages %}
+
+            <a href="/?page={{ page + 1 }}"
+               class="page-btn">
+
+                Next →
+
+            </a>
+
+        {% endif %}
+
+    </div>
+
+</div>
+
+<script>
+
+const ctx = document.getElementById('newsChart');
+
+new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: [
+            'Technology',
+            'Business',
+            'Politics',
+            'Sports',
+            'General'
+        ],
+        datasets: [{
+            label: 'Articles',
+            data: [
+                {{ stats.technology }},
+                {{ stats.business }},
+                {{ stats.politics }},
+                {{ stats.sports }},
+                {{ stats.general }}
+            ]
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: {
+                display: false
+            }
+        }
+    }
+});
+
+function toggleTheme() {
+
+    document.body.classList.toggle("dark-mode");
+
+    if (document.body.classList.contains("dark-mode")) {
+        localStorage.setItem("theme", "dark");
+    } else {
+        localStorage.setItem("theme", "light");
+    }
+}
+
+window.onload = function() {
+
+    if (localStorage.getItem("theme") === "dark") {
+        document.body.classList.add("dark-mode");
+    }
+
+};
+
+function speakSummary(button) {
+
+    let card = button.closest(".card");
+
+    let summary =
+        card.querySelector(".summary").innerText;
+
+    let speech =
+        new SpeechSynthesisUtterance(summary);
+
+    speech.lang = "en-US";
+    speech.rate = 1;
+    speech.pitch = 1;
+
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.speak(speech);
+}
+
+</script>
+<footer class="footer">
+    <p>📰 DailyBriefAI | AI-Powered Current Affairs & News Learning Platform</p>
+    <p>Developed using Flask, SQLite, Gemini AI & RSS Feeds</p>
+</footer>
+</body>
+</html>
