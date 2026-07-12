@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Bookmarks</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>📚 Saved Articles</h1>
+
+    <a href="/" class="btn">
+        ← Back Home
+    </a>
+
+    <br><br>
+
+    {% if bookmarks %}
+
+        {% for article in bookmarks %}
+
+        <div class="card">
+
+            {% if article[5] %}
+            <img src="{{ article[5] }}"
+                 class="news-image">
+            {% endif %}
+
+            <span class="category-badge">
+                {{ article[4] }}
+            </span>
+
+            <h2>{{ article[1] }}</h2>
+
+            <p>{{ article[2] }}</p>
+
+            <a href="{{ article[3] }}"
+               target="_blank"
+               class="btn">
+                Read Article
+            </a>
+
+            <a href="/remove_bookmark/{{ article[0] }}"
+               class="btn">
+                ❌ Remove Bookmark
+            </a>
+
+        </div>
+
+        {% endfor %}
+
+    {% else %}
+
+        <div class="card">
+            <h3>No bookmarks saved yet.</h3>
+        </div>
+
+    {% endif %}
+
+</div>
+
+</body>
+</html>
