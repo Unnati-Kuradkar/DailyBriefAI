@@ -1,0 +1,579 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f9;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+}
+
+h1 {
+    text-align: center;
+    color: #222;
+    margin-bottom: 25px;
+}
+
+/* =========================
+   Dashboard Statistics
+========================= */
+
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+
+    transition: transform 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.stat-card h3 {
+    margin: 0;
+    color: #555;
+    font-size: 15px;
+}
+
+.stat-card p {
+    margin-top: 12px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #007bff;
+}
+
+/* =========================
+   Top Bar
+========================= */
+
+/* =========================
+   Top Bar
+========================= */
+
+.top-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.refresh-btn {
+    display: inline-block;
+    padding: 12px 20px;
+
+    background: #28a745;
+    color: white;
+
+    text-decoration: none;
+    border-radius: 8px;
+
+    font-weight: bold;
+
+    transition: 0.2s;
+}
+
+.refresh-btn:hover {
+    background: #218838;
+}
+
+/* =========================
+   Search
+========================= */
+
+.search-form {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.search-form input {
+    width: 320px;
+    max-width: 90%;
+
+    padding: 10px;
+
+    border: 1px solid #ccc;
+    border-radius: 6px;
+
+    font-size: 16px;
+}
+
+.search-form button {
+    padding: 10px 15px;
+
+    border: none;
+    border-radius: 6px;
+
+    background: #007bff;
+    color: white;
+
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.search-form button:hover {
+    opacity: 0.9;
+}
+
+/* =========================
+   Category Filters
+========================= */
+
+.category-filters {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.filter-btn {
+    display: inline-block;
+
+    margin: 5px;
+    padding: 8px 15px;
+
+    text-decoration: none;
+
+    background: #444;
+    color: white;
+
+    border-radius: 20px;
+
+    font-size: 14px;
+}
+
+.filter-btn:hover {
+    opacity: 0.85;
+}
+
+/* =========================
+   News Cards
+========================= */
+
+.card {
+    background: white;
+
+    padding: 20px;
+    margin-bottom: 20px;
+
+    border-radius: 12px;
+
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+
+    transition: transform 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.card h2 {
+    color: #222;
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: #555;
+    line-height: 1.6;
+}
+
+.card small {
+    color: #888;
+}
+
+.category-badge {
+    display: inline-block;
+
+    background: #6c63ff;
+    color: white;
+
+    padding: 5px 10px;
+
+    border-radius: 20px;
+    font-size: 12px;
+
+    margin-bottom: 10px;
+}
+
+/* =========================
+   Buttons
+========================= */
+
+.btn {
+    display: inline-block;
+
+    padding: 10px 16px;
+
+    background: #007bff;
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 6px;
+
+    transition: background 0.2s ease;
+}
+
+.btn:hover {
+    background: #0056b3;
+}
+
+/* =========================
+   Pagination
+========================= */
+
+.pagination {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.page-btn {
+    display: inline-block;
+
+    padding: 10px 15px;
+    margin: 0 10px;
+
+    text-decoration: none;
+
+    background: #007bff;
+    color: white;
+
+    border-radius: 6px;
+}
+
+.page-btn:hover {
+    opacity: 0.9;
+}
+
+.page-info {
+    font-weight: bold;
+}
+
+/* =========================
+   Mobile
+========================= */
+
+@media (max-width: 768px) {
+
+    .search-form input {
+        width: 90%;
+        margin-bottom: 10px;
+    }
+
+    .search-form button {
+        width: 120px;
+    }
+
+    .stat-card p {
+        font-size: 24px;
+    }
+
+    .top-bar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .top-bar a,
+    .top-bar button {
+        width: 220px;
+        text-align: center;
+    }
+}
+
+.stats-bar {
+    text-align: center;
+    background: white;
+    padding: 12px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.stats-bar p {
+    margin: 0;
+    color: #444;
+    font-size: 15px;
+}
+
+/* =========================
+   News Images
+========================= */
+
+.news-image {
+    width: 100%;
+    height: 250px;
+
+    object-fit: cover;
+
+    border-radius: 10px;
+
+    margin-bottom: 15px;
+
+    display: block;
+}
+
+/* =========================
+   Dark Mode
+========================= */
+
+.theme-btn {
+    margin-left: 10px;
+    padding: 12px 20px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: #333;
+    color: white;
+
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.theme-btn:hover {
+    opacity: 0.9;
+}
+
+/* Dark Background */
+
+body.dark-mode {
+    background: #121212;
+    color: white;
+}
+
+/* Cards */
+
+body.dark-mode .card,
+body.dark-mode .stat-card,
+body.dark-mode .stats-bar {
+    background: #1e1e1e;
+    color: white;
+}
+
+/* Titles */
+
+body.dark-mode h1,
+body.dark-mode .card h2,
+body.dark-mode .stat-card h3,
+body.dark-mode .page-info {
+    color: white;
+}
+
+/* Paragraphs */
+
+body.dark-mode .card p,
+body.dark-mode .stats-bar p,
+body.dark-mode small {
+    color: #cccccc;
+}
+
+/* Inputs */
+
+body.dark-mode input {
+    background: #2a2a2a;
+    color: white;
+    border: 1px solid #444;
+}
+
+/* Filter Buttons */
+
+body.dark-mode .filter-btn {
+    background: #555;
+}
+
+/* Pagination */
+
+body.dark-mode .page-btn {
+    background: #0056b3;
+}
+
+/* =========================
+   Analytics Chart
+========================= */
+
+.chart-card {
+    background: white;
+    width: 100%;
+    max-width: 900px;
+
+    margin: 25px auto;
+
+    padding: 20px;
+
+    border-radius: 12px;
+
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.chart-card h2 {
+    text-align: center;
+    color: #222;
+
+    margin-bottom: 15px;
+
+    font-size: 28px;
+}
+
+#newsChart {
+    width: 100% !important;
+    height: 280px !important;
+}
+
+/* Dark Mode Chart */
+
+body.dark-mode .chart-card {
+    background: #1e1e1e;
+}
+
+body.dark-mode .chart-card h2 {
+    color: white;
+}
+
+/* =========================
+   Custom Buttons
+========================= */
+
+.pdf-btn {
+    background: #dc3545;
+    color: white;
+}
+
+.pdf-btn:hover {
+    background: #c82333;
+}
+
+.revision-btn {
+    background: #6f42c1;
+    color: white;
+}
+
+.revision-btn:hover {
+    background: #5a32a3;
+}
+
+.mcq-btn {
+    background: #ff9800;
+    color: white;
+}
+
+.mcq-btn:hover {
+    background: #e68900;
+}
+
+.quiz-btn {
+    background: #17a2b8;
+    color: white;
+}
+
+.quiz-btn:hover {
+    background: #138496;
+}
+
+.footer {
+    text-align: center;
+    margin: 40px 0 20px;
+    color: #666;
+    font-size: 14px;
+}
+
+.magazine-btn {
+    background: #9c27b0;
+    color: white;
+}
+
+.magazine-btn:hover {
+    background: #7b1fa2;
+}
+
+.voice-btn{
+    margin-top:10px;
+    cursor:pointer;
+}
+
+.hero-section{
+    text-align:center;
+    padding:30px;
+    margin-bottom:20px;
+    background:white;
+    border-radius:15px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.1);
+}
+
+.hero-section h1{
+    margin-bottom:10px;
+}
+
+.hero-section p{
+    color:#555;
+    margin:5px;
+}
+
+.hero{
+    text-align:center;
+    padding:30px;
+    border-radius:15px;
+    background:linear-gradient(
+        135deg,
+        #f2f2f8,
+        #f2f0f6
+    );
+    color:white;
+    margin-bottom:20px;
+}
+
+.hero-tags{
+    margin-top:15px;
+}
+
+.hero-tags span{
+    background:white;
+    color:#9b99be;
+    padding:8px 14px;
+    border-radius:20px;
+    margin:5px;
+    display:inline-block;
+    font-weight:bold;
+}
+
+.achievement-bar{
+    background:white;
+    padding:15px;
+    border-radius:12px;
+    text-align:center;
+    font-weight:bold;
+    margin:20px 0;
+}
+
+.top-bar a{
+    min-width:180px;
+    text-align:center;
+}
+
+<footer class="footer">
+
+    <h3>DailyBriefAI</h3>
+
+    <p>
+        AI Current Affairs Platform for
+        UPSC, SSC, Banking, Railway,
+        Defence & State PSC
+    </p>
+
+</footer>
