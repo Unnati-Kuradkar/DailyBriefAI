@@ -1,102 +1,101 @@
-DailyBriefAI – AI-Powered News Summarization and Current Affairs Platform
+# DailyBriefAI – AI-Powered News Summarization and Current Affairs Platform
 
-Author: Unnati Kuradkar
-Affiliation: MCA Student
-Date: July 2026
+## Author
+**Unnati Kuradkar**
 
-Abstract
+**Affiliation:** MCA Student
 
-This repository presents DailyBriefAI, an AI-powered news aggregation and current affairs platform that automatically collects news from RSS feeds, generates concise summaries using Artificial Intelligence, and organizes articles into meaningful categories. The system helps users stay informed efficiently while also providing educational features such as quizzes, UPSC notes, revision materials, bookmarks, PDF reports, and an AI chatbot. By combining Natural Language Processing (NLP) with modern web technologies, DailyBriefAI transforms large volumes of news into easily consumable and exam-oriented content.
+**Date:** July 2026
 
-Introduction
+---
 
-In today's information-driven world, users are exposed to thousands of news articles daily. Reading and understanding all available information is both time-consuming and challenging. Traditional news portals often provide lengthy articles without offering concise insights or learning-oriented features.
+# Abstract
 
-DailyBriefAI was developed to address this challenge by automatically collecting news from trusted RSS sources and generating AI-powered summaries. The platform enables users to access important current affairs quickly while also supporting competitive exam preparation through quizzes, notes, and revision content. The system serves as a unified platform for both news consumption and knowledge enhancement.
+This repository presents DailyBriefAI...
 
-Literature Review
+---
 
-Traditional news aggregation platforms primarily focus on collecting and displaying articles from various sources. While effective in information delivery, these systems lack intelligent content processing and educational support.
+# Introduction
 
-Recent advancements in Artificial Intelligence, Natural Language Processing (NLP), and Large Language Models (LLMs) have enabled automatic text summarization, content classification, and intelligent question generation.
+In today's information-driven world...
 
-Technologies commonly used in modern intelligent news systems include:
+---
 
-Natural Language Processing (NLP)
-Machine Learning Algorithms
-Large Language Models (LLMs)
-AI-based Text Summarization
-Information Retrieval Systems
-News Recommendation Systems
+# Literature Review
 
-Google Gemini API provides advanced language understanding and summarization capabilities, making it suitable for building intelligent news processing applications.
+Traditional news aggregation platforms...
 
-Methodology
+---
 
-The system operates through the following stages:
+# Methodology
 
-1. News Collection
+## 1. News Collection
 
-News articles are automatically fetched from RSS feeds of trusted news publishers.
+News articles are automatically fetched from RSS feeds.
 
-2. Data Processing
+## 2. Data Processing
 
-Collected news content is cleaned, formatted, and prepared for AI processing.
+Collected news content is cleaned and processed.
 
-3. AI Summarization
+## 3. AI Summarization
 
-The Gemini API generates concise summaries that capture the key information from lengthy articles.
+The Gemini API generates concise summaries.
 
-4. Category Classification
+## 4. Category Classification
 
-Articles are classified into categories such as:
+- Politics
+- Business
+- Technology
+- Sports
+- General
 
-Politics
-Business
-Technology
-Sports
-General
-5. Database Storage
+## 5. Database Storage
 
-Processed articles and metadata are stored in an SQLite database for efficient retrieval.
+Processed articles are stored in SQLite.
 
-6. User Interaction
+## 6. User Interaction
 
-Users can browse, search, bookmark, and download summarized news content.
+Users can search, bookmark and download content.
 
-7. Learning Features
+## 7. Learning Features
 
-The platform generates:
+- UPSC Notes
+- Daily Quizzes
+- MCQs
+- Weekly Revision
+- Monthly Magazine
 
-UPSC Notes
-Daily Quizzes
-MCQs
-Weekly Revision Material
-Monthly Magazine Reports
+---
 
-This integrated workflow provides both information access and educational support.
+# Implementation
 
-Implementation
-Programming Languages
-Python
-HTML
-CSS
-JavaScript
-Frameworks / Libraries
-Flask
-SQLite
-Feedparser
-Google Gemini API
-Requests
-BeautifulSoup
-Tools Used
-Visual Studio Code
-GitHub
-SQLite Database
-Results and Discussion
-Achievements
+## Programming Languages
 
-✅ Live News Collection using RSS Feeds
+- Python
+- HTML
+- CSS
+- JavaScript
+
+## Frameworks / Libraries
+
+- Flask
+- SQLite
+- Feedparser
+- Google Gemini API
+
+## Tools Used
+
+- Visual Studio Code
+- GitHub
+- SQLite
+
+---
+
+# Results and Discussion
+
+## Achievements
+
+✅ Live News Collection
 
 ✅ AI-Powered News Summarization
 
@@ -120,61 +119,46 @@ Achievements
 
 ✅ Daily Quiz Feature
 
-✅ Catch-Up Module
-
 ✅ Analytics Dashboard
 
-✅ Dark Mode Interface
+---
 
-The platform successfully collects and processes news articles while providing AI-generated summaries and educational resources. Users can quickly access current affairs content and prepare for competitive examinations using a single integrated dashboard.
+# Limitations
 
-Limitations
-AI summarization depends on Gemini API availability and quotas.
-RSS feed availability relies on external news providers.
-Category classification accuracy may vary for complex or ambiguous articles.
-Internet connectivity is required for news collection and AI processing.
-Free-tier API limitations may restrict large-scale summarization requests.
-Future Scope
-Personalized Recommendations
+- AI summarization depends on API availability.
+- RSS feed availability depends on external sources.
+- Internet connection is required.
 
-Recommend articles based on user interests and reading history.
+---
 
-User Authentication
+# Future Scope
 
-Support personalized accounts and saved preferences.
+## Personalized Recommendations
 
-Voice Summaries
+## User Authentication
 
-Convert AI-generated summaries into audio format.
+## Voice Summaries
 
-Mobile Application
+## Mobile Application
 
-Develop Android and iOS versions of the platform.
+## Multi-Language Support
 
-Multi-Language Support
+## Cloud Deployment
 
-Generate summaries in regional and international languages.
+## Advanced Analytics
 
-Cloud Deployment
+---
 
-Deploy the system on cloud platforms for global accessibility.
+# Conclusion
 
-Advanced Analytics
+DailyBriefAI demonstrates the practical application of Artificial Intelligence and NLP in modern news aggregation systems.
 
-Provide user engagement statistics and reading behavior insights.
+---
 
-Conclusion
+# References
 
-DailyBriefAI demonstrates the practical application of Artificial Intelligence, Natural Language Processing, and Web Development in modern news aggregation systems. By integrating RSS-based news collection, AI-powered summarization, educational tools, and analytics, the platform provides an efficient and intelligent solution for news consumption and competitive exam preparation. The project showcases how AI can simplify information overload and improve learning experiences for students and professionals alike.
-
-References
-Google Gemini API Documentation
-Flask Documentation
-SQLite Documentation
-Feedparser Documentation
-Python Official Documentation
-RSS Feed Standards Documentation
-Natural Language Processing Research Papers
-Google AI Developer Resources
-News Aggregation Systems Research Literature
-AI-Based Text Summarization Research Papers
+1. Google Gemini API Documentation
+2. Flask Documentation
+3. SQLite Documentation
+4. Feedparser Documentation
+5. Python Documentation
