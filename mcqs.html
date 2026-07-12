@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>DailyBriefAI MCQs</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🧠 Entrance Exam MCQ Practice</h1>
+    <div class="card">
+
+        <h3>
+            🎯 UPSC / SSC / Banking / Railway Practice
+        </h3>
+
+        <p>
+            Practice current affairs questions designed for
+            competitive examinations.
+        </p>
+
+    </div>
+    <a href="/" class="btn">
+        ← Back Home
+    </a>
+
+    <a href="/download_mcq_pdf" class="btn">
+        📄 Download MCQ PDF
+    </a>
+
+    <br><br>
+
+    {% for mcq in mcqs %}
+
+    <div class="card">
+
+        <h3>
+            Q{{ loop.index }}.
+            {{ mcq.question }}
+        </h3>
+
+        <p>
+            <strong>{{ mcq.title }}</strong>
+        </p>
+
+        <ol type="A">
+
+            {% for option in mcq.options %}
+                <li>{{ option }}</li>
+            {% endfor %}
+
+        </ol>
+
+        <details>
+
+            <summary>
+                <strong>✅ Show Answer & Explanation</strong>
+            </summary>
+
+            <br>
+
+            <p>
+                <strong>Correct Answer:</strong>
+                {{ mcq.answer }}
+            </p>
+
+            <p>
+                <strong>Explanation:</strong>
+                {{ mcq.summary }}
+            </p>
+
+        </details>
+
+    </div>
+
+    {% endfor %}
+
+</div>
+
+</body>
+</html>
