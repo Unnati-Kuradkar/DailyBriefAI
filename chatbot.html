@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI News Chatbot</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>🤖 AI News Chatbot</h1>
+
+    <a href="/" class="btn">
+        ← Back Home
+    </a>
+
+    <br><br>
+
+    <form method="POST">
+
+        <input
+            type="text"
+            name="question"
+            placeholder="Ask about today's news..."
+            style="width:80%;padding:12px;"
+            required
+        >
+
+        <button type="submit" class="btn">
+            Ask
+        </button>
+
+    </form>
+
+    {% if answer %}
+
+    <div class="card">
+        <h3>Answer</h3>
+        <p>{{ answer }}</p>
+    </div>
+
+    {% endif %}
+
+</div>
+
+</body>
+</html>
