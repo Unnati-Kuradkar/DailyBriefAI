@@ -1,6 +1,6 @@
 Flask
 feedparser
-google-generativeai
+google-genai
+reportlab
 requests
 beautifulsoup4
-fpdf
