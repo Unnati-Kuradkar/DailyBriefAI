@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Weekly Revision</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>📚 Weekly Revision Notes</h1>
+
+    <a href="/" class="btn">
+        ← Back Home
+    </a>
+
+    <br><br>
+
+    {% for article in news %}
+
+    <div class="card">
+
+        <span class="category-badge">
+            {{ article[5] }}
+        </span>
+
+        <h3>{{ article[1] }}</h3>
+
+        <p>{{ article[2] }}</p>
+
+    </div>
+
+    {% endfor %}
+
+</div>
+
+</body>
+</html>
