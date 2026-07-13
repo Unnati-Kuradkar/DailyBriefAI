@@ -4,3 +4,4 @@ google-genai
 reportlab
 requests
 beautifulsoup4
+gunicorn
